@@ -48,7 +48,7 @@ git -v
 ## Installation locale
 
 ```bash
-git clone https://github.com/1337lpb-afk/scanner.git
+git clone https://github.com/1337lpb-afk/PC-Checker-UI-.git
 cd scanner
 npm install
 ```
