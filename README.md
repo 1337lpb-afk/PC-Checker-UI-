@@ -1,6 +1,6 @@
-# Scanner PC
+# PC Checker UI
 
-Application bureau **React + Electron** pour l’interface d’un scanner PC : login PIN, écran de scan animé, et écran de fin.
+Application bureau **React + Electron** (Scanner PC) : login PIN, écran de scan animé, et écran de fin.
 
 **made by [OWXLD](https://github.com/1337lpb-afk)**
 
@@ -48,7 +48,7 @@ git -v
 ## Installation locale
 
 ```bash
-git clone https://github.com/TON_USERNAME/scanner.git
+git clone https://github.com/1337lpb-afk/scanner.git
 cd scanner
 npm install
 ```

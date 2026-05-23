@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "PC Scanner — interface Electron",
+  "description": "PC Checker UI — interface Electron",
   "author": "OWXLD",
   "main": "electron/main.cjs",
   "scripts": {
