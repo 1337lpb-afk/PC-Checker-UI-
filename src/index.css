@@ -1,0 +1,334 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Fenêtre Electron sans cadre : glisser la fenêtre sur le fond */
+.electron-drag {
+  -webkit-app-region: drag;
+}
+
+.electron-no-drag {
+  -webkit-app-region: no-drag;
+}
+
+@layer base {
+  button,
+  input,
+  select,
+  textarea {
+    @apply appearance-none bg-transparent border-0 outline-none;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  /* Tailwind preflight met height:auto sur img — casse les calques Figma en % */
+  img.figma-asset {
+    max-width: none;
+    display: block;
+  }
+
+  .figma-icon-layer {
+    max-width: none;
+    flex-shrink: 0;
+  }
+}
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  --animate-spin: spin 1s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-marquee {
+  animation: marquee var(--duration) infinite linear;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration) linear infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 8s infinite;
+}
+
+.animate-spin {
+  animation: var(--animate-spin);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes image-glow {
+  0% {
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.74, 0.25, 0.76, 1);
+  }
+
+  10% {
+    opacity: 0.7;
+    animation-timing-function: cubic-bezier(0.12, 0.01, 0.08, 0.99);
+  }
+
+  to {
+    opacity: 0.4;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  90%,
+  to {
+    background-position: calc(-100% - var(--shimmer-width)) 0;
+  }
+
+  30%,
+  60% {
+    background-position: calc(100% + var(--shimmer-width)) 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}
+
+/* ——— Animations UI scanner ——— */
+
+.screen-enter {
+  animation: screen-enter 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.panel-enter {
+  animation: panel-enter 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.notify-slide {
+  animation: notify-slide 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.icon-pop {
+  animation: icon-pop 0.85s cubic-bezier(0.34, 1.45, 0.64, 1) 0.15s both;
+}
+
+.banner-pop {
+  animation: banner-pop 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+.input-glow {
+  animation: input-glow 2.4s ease-in-out infinite;
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 7px;
+  height: 0.95em;
+  margin-left: 3px;
+  background: currentColor;
+  vertical-align: text-bottom;
+  transform: translateY(1px);
+  animation: cursor-solid 0.8s step-end infinite;
+}
+
+.typing-cursor-idle {
+  animation: cursor-solid 1.1s step-end infinite;
+}
+
+.typing-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 1px;
+  animation: typing-dot-bounce 1.1s ease-in-out infinite;
+}
+
+.square-loader {
+  display: grid;
+  grid-template-columns: repeat(2, 10px);
+  gap: 5px;
+}
+
+.square-loader span {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: #fff;
+  animation: square-pulse 1.2s ease-in-out infinite;
+}
+
+.square-loader span:nth-child(1) {
+  animation-delay: 0s;
+}
+.square-loader span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.square-loader span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.square-loader span:nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+@keyframes screen-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes notify-slide {
+  from {
+    opacity: 0;
+    transform: translateX(-105%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes icon-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.4) rotate(-8deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes banner-pop {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes input-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.22);
+  }
+}
+
+@keyframes cursor-solid {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes typing-dot-bounce {
+  0%,
+  70%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.35;
+  }
+  35% {
+    transform: translateY(-5px);
+    opacity: 1;
+  }
+}
+
+@keyframes square-pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

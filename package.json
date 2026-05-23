@@ -1,0 +1,36 @@
+{
+  "name": "scanner",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "PC Scanner — interface Electron",
+  "author": "OWXLD",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "concurrently -k \"vite\" \"wait-on http://localhost:5173 && cross-env VITE_DEV_SERVER_URL=http://localhost:5173 electron .\"",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "electron": "cross-env NODE_ENV=production electron .",
+    "start": "npm run build && npm run electron"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.2"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.4.1",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron": "^36.4.0",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vite-plugin-svgr": "^4.3.0",
+    "wait-on": "^8.0.3"
+  }
+}

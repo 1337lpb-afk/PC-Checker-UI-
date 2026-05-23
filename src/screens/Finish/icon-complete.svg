@@ -1,0 +1,17 @@
+<svg width="213" height="213" viewBox="0 0 213 213" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M106.5 12C58.5 12 20 50.5 20 98.5C20 146.5 58.5 185 106.5 185C154.5 185 193 146.5 193 98.5C193 50.5 154.5 12 106.5 12Z"
+    stroke="white"
+    stroke-width="10"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    opacity="0.35"
+  />
+  <path
+    d="M62 104L92 134L152 72"
+    stroke="white"
+    stroke-width="16"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
