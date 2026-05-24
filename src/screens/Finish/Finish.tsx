@@ -1,7 +1,7 @@
 import { FigmaImage } from "@/components/FigmaImage";
 import { Typewriter } from "@/components/Typewriter";
 import CompleteIcon from "./icon-complete.svg?react";
-import DoneIcon from "./icon-done.svg?react";
+import notificationFinishedUrl from "./notification-finished.png?url";
 import vectorUrl from "./vector.svg?url";
 
 export const Finish = () => {
@@ -27,6 +27,7 @@ export const Finish = () => {
           src={vectorUrl}
         />
       </div>
+      {/* Pas de bannière blanche « Scanners » ici — uniquement la notification verte de fin */}
       <section
         className="banner-pop electron-no-drag absolute top-[564px] left-[-11px] w-[520px] h-[120px] flex bg-[#08c552] rounded-[9px]"
         aria-live="polite"
@@ -50,9 +51,12 @@ export const Finish = () => {
               showCursor={false}
             />
           </p>
-          <div className="absolute top-px left-0 w-[46px] h-[39px] flex items-center justify-center bg-[#74ff7438] rounded-[23.22px/19.71px]">
-            <DoneIcon className="w-4 h-auto block" aria-hidden />
-          </div>
+          <FigmaImage
+            src={notificationFinishedUrl}
+            alt=""
+            className="absolute top-px left-0 h-[39px] w-[46px] rounded-full object-cover"
+            aria-hidden
+          />
         </div>
       </section>
       <div

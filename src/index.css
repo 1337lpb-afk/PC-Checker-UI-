@@ -321,6 +321,22 @@ body,
   }
 }
 
+.animate-scan-icon {
+  animation: scan-icon-pulse 2s ease-in-out infinite;
+}
+
+@keyframes scan-icon-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.88;
+    transform: scale(1.04);
+  }
+}
+
 @keyframes square-pulse {
   0%,
   100% {

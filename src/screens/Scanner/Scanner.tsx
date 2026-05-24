@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ScannerNotificationIcon } from "@/components/ScannerNotificationIcon";
 import { Typewriter } from "@/components/Typewriter";
 import { TypingDots } from "@/components/TypingDots";
 import { FigmaImage } from "@/components/FigmaImage";
-import group260Url from "./group-260.png?url";
+import notificationScanningUrl from "./notification-scanning.png?url";
 import vectorUrl from "./vector.svg?url";
 
 const SCAN_DURATION_MS = 5000;
@@ -82,11 +83,7 @@ export const Scanner = () => {
       >
         <div className="w-[378px] flex">
           <div className="w-[381.81px] h-[54px] relative">
-            <FigmaImage
-              className="absolute top-0 left-0 w-[47px] h-[46px] object-contain"
-              alt=""
-              src={group260Url}
-            />
+            <ScannerNotificationIcon src={notificationScanningUrl} spinning />
             <h1 className="absolute top-0 left-[62px] w-[200px] font-['Inter'] font-medium text-black text-base tracking-[0] leading-[normal]">
               <Typewriter text="Scanners" speed={55} startDelay={400} showCursor={false} />
             </h1>
